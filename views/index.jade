@@ -1,0 +1,150 @@
+html(lang='en')
+  head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='lopsan /o/', content='')
+      title= title
+      //
+         Bootstrap core CSS 
+      link(href='/css/bootstrap.css', rel='stylesheet')
+      //
+         Add custom CSS here 
+      link(href='/css/stylish-portfolio.css', rel='stylesheet')
+      link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    body
+      noscript
+        | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+      //
+         Side Menu 
+      a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+        i.fa.fa-bars
+      #sidebar-wrapper
+        ul.sidebar-nav
+          a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+            i.fa.fa-times
+          li.sidebar-brand
+            if todo == undefined
+              a(href='index') Bienvenido
+            else 
+              a(href='index') #{todo[0].Nombre}            
+          li
+            a(href='index') Home
+          if todo == undefined  
+          else 
+            if todo[0].ID_prof
+              li
+                a(href='cprof' ) Datos
+            else
+              li
+                a(href='calum') Datos
+          if todo == undefined
+            li
+                a(href='login' ) Ingresa Sesion
+            li
+                a(href='registrarse' ) Registrarse  
+          else 
+          li
+            a(href='teoriadb') Teoria
+          li
+            a(href='ejer1') Ejercicios
+          li
+            a(href='actividades') Material Didactico
+          if todo == undefined  
+          else 
+            li
+              a(href='salir') Cerrar sesion
+      //
+         /Side Menu 
+      //
+         Full Page Image Header Area 
+      #top.header
+        .vert-text
+          br
+          br
+          br
+          h1 Sistema Multi Didáctico Educativo (SMDE)
+          h3
+            em Resolvemos tus problemas del mañana HOY!
+          if todo == undefined
+          else
+            a(href='index') Bienvenido #{todo[0].Nombre}
+          .container
+            .row
+              .col-md-6.col-md-offset-3.text-center
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                if todo == undefined
+                  a.btn.btn-default.btn-lg(href='teoriadb') Explora
+                br
+                br
+                br
+                if todo == undefined                
+                  a.btn.btn-lg.btn-default(href='login') Inicia Sesion
+                  a.btn.btn-lg.btn-primary(href='registrarse') Registrate
+                  br
+                  br
+                  br
+                else
+                font(color='white')  
+                  ul.list-inline
+                    li
+                      a(href='https://www.facebook.com/')
+                        i.fa.fa-facebook.fa-3x
+                    li
+                      i.fa.fa-twitter.fa-3x
+                    li
+                      i.fa.fa-dribbble.fa-3x
+                  hr
+                  p
+                    | Copyright ©
+                    b Tech. Corp.
+                    | 2014
+      //
+         /Callout 
+      //
+         Portfolio 
+      //
+         /Portfolio 
+      //
+         Call to Action 
+      //
+         /Call to Action 
+      //
+         Footer 
+      //
+         /Footer 
+      //
+         JavaScript 
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

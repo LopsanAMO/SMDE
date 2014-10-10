@@ -1,0 +1,398 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title SMDE-EA
+    //
+        Bootstrap core CSS 
+    link(href='css4/bootstrap.css', rel='stylesheet')
+    //
+        Add custom CSS here 
+    link(href='css4/business-casual.css', rel='stylesheet')
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/stylish-portfolio.css', rel='stylesheet')
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    script(type='text/javascript').
+      var answer0="C";
+      var answer1="D";
+      var answer2="B";
+      var answer3="B";
+      var answer4="D";
+      var answer5="C";
+      var answer6="B";
+      var answer7="A";
+      var answer8="B";
+      var answer9="C";
+      var answer10="A";
+      var answer11="B";
+      var answer12="C";
+      var answer13="D";
+      var answer14="A";
+      function test(form) {
+      var a=0;
+      if( form.Q1.value == answer0 ){
+        a=a+1;
+      }
+      if( form.Q2.value == answer1 ){
+        a=a+1;
+      }
+      if( form.Q3.value == answer2 ){
+        a=a+1;
+      }
+      if( form.Q4.value == answer3 ){
+        a=a+1;
+      }
+      if( form.Q5.value == answer4 ){
+        a=a+1;
+      }
+      if( form.Q6.value == answer5 ){
+        a=a+1;
+      }
+      if( form.Q7.value == answer6 ){
+        a=a+1;
+      }
+      if( form.Q8.value == answer7 ){
+        a=a+1;
+      }
+      if( form.Q9.value == answer8 ){
+        a=a+1;
+      }
+      if(  form.Q10.value == answer9 ){
+        a=a+1;
+      }
+      if(  form.Q11.value == answer10 ){
+        a=a+1;
+      }
+      if(  form.Q12.value == answer11 ){
+        a=a+1;
+      }
+      if(  form.Q13.value== answer12 ){
+        a=a+1;
+      }
+      if(  form.Q14.value == answer13 ){
+        a=a+1;
+      }
+      if(  form.Q15.value == answer14 ){
+        a=a+1;
+      }
+      var asp=(a*10)/15;
+      asp= Math.round(asp * 1) / 1;
+      console.log(asp);
+      if(1==1){
+      alert("Tu calificacion es "+ asp);
+      document.formularini.calif.value=asp;
+      }
+      }
+  body
+    noscript
+      | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+    ul.nav.nav-pills
+      li.active
+        a(href='ejer2') Dibujo Tecnico 
+      li.active
+        a(href='ejer1')  Geometria Analitica 
+    a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+      i.fa.fa-bars
+    #sidebar-wrapper
+      ul.sidebar-nav
+        a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+          i.fa.fa-times
+        li.sidebar-brand
+          if todo == undefined
+            a(href='index') Bienvenido
+          else 
+              a(href='index') #{todo[0].Nombre}            
+        li
+          a(href='index') Home
+        if todo == undefined  
+        else 
+          if todo[0].ID_prof
+            li
+              a(href='cprof' ) Datos
+          else
+            li
+              a(href='calum') Datos
+        if todo == undefined
+          li
+              a(href='login' ) Ingresa Sesion
+          li
+              a(href='registrarse' ) Registrarse  
+        else 
+        li
+          a(href='teoriadb') Teoria
+        li
+          a(href='ejer1') Ejercicios
+        li
+          a(href='actividades') Material Didactico
+        if todo == undefined  
+        else 
+          li
+            a(href='salir') Cerrar sesion
+    .container
+      br
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            #Maind
+            .row(align='center', style='margin-top: 100px;')
+              .col-md-6.col-md-offset-3.FormHolder
+                form(name='formularini', action='calif2', method='post')
+                  h2(align='center') Cuestionario | Geometria Analitica
+                  p
+                    | 1) ¿Cuáles de las siguientes figuras no pertenece a una de las cuatro ecaciones cónicas?
+                  select.form-control(name='Q1')
+                    option(value='A')  A) Parábola.
+                    option(value='B')  B) Elipse.
+                    option(value='C')  C) Cono.
+                    option(value='D')
+                      | D) Circunfernecia.
+                      sup 2
+                      | .
+                  hr
+                  p
+                    | 2) ¿A qué figura corresponde la siguiente descripción?
+                    | Es el conjunto de puntos situados en un plano de tal modo que desde cada punto, las distancias no orientadas a punto fijo y una recta fija son iguales.
+                  select.form-control(name='Q2')
+                    option(value='A') A) Arco.
+                    option(value='B') B) Circunferencia.
+                    option(value='C') C) Cono.
+                    option(value='D') D) Parábola.
+                  hr
+                  p
+                    | 3) ¿Cuáles son elementos de la parabola?
+                  select.form-control(name='Q11')
+                    option(value='A') A) Focos,Eje focal y Vertices del eje mayor.
+                    option(value='B') B) Foco,Directriz y Lado recto.
+                    option(value='C') C) Radio,Diametro y Semieje focal'.
+                    option(value='D') D) Base,Altura y Profundidad.
+                  hr
+                  p
+                    | 4) ¿Cual es la ecuacion canonica de la parabola horizontal que abre a la derecha?
+                  select.form-control(name='Q12')
+                    option(value='A')
+                      | A) (y-k)
+                      sup 2
+                      | =-4p(x-h).
+                    option(value='B')
+                      | B) (x-h)
+                      sup 2
+                      | =-4p(y-k).
+                    option(value='C')
+                      | C) (y-k)
+                      sup 2
+                      | =4p(x-h).
+                    option(value='D')
+                      | D) (x-h)
+                      sup 2
+                      | =4p(y-k).
+                  hr
+                  p
+                    | 5) Formula de la excentricidad de la elipse
+                  select.form-control(name='Q13')
+                    option(value='A') A) E=mc^2.
+                    option(value='B') B) E=K+U.
+                    option(value='C') C) E=FV.
+                    option(value='D') D) e=c/a.
+                  hr
+                  p
+                    | 6) ¿Cual de las siguientes es una ecuacion de la recta?
+                  select.form-control(name='Q14')
+                    option(value='A') A) Ecuacion simetrica.
+                    option(value='B') B) Ecuacion diferencial.
+                    option(value='C') C) Ecuacion logica.
+                    option(value='D') D) Ecuacion canonica.
+                  hr
+                  p
+                    | 7) ¿Cual es la ecuacion general de la circunferencia con centro en el origen?
+                  select.form-control(name='Q15')
+                    option(value='A') A) x^2+(y-k)^2=r^2.
+                    option(value='B') B) x^2+y^2=r^2.
+                    option(value='C') C) (x-h)^2+y^2=r^2.
+                    option(value='D') D) (x-h)^2+(y-k)^2=r^2.
+                  hr
+                  p
+                    | 8) ¿Cuáles de las siguientes figuras no tiene foco?
+                  select.form-control(name='Q3')
+                    option(value='A') A) Parábola.
+                    option(value='B') B) Circunferencia.
+                    option(value='C') C) Elipse.
+                    option(value='D') D) Hipérbola.
+                  hr
+                  p
+                    | 9) En la elipse, ¿Qué representa 2c?
+                  select.form-control(name='Q4')
+                    option(value='A') A) El eje transverso.
+                    option(value='B') B) El eje conjugado.
+                    option(value='C') C) El eje mayor.
+                    option(value='D') D) El eje focal.
+                  hr
+                  p
+                    | 10)  La orbita de la Tierra es una elipse con excentricidad de 0.017 y de eje mayor 298 millones de kilómetros. Si el Sol está en uno de sus focos, ´¿cuál es la distancia máxima y mínima?
+                  select.form-control(name='Q5')
+                    option(value='A') A) Máxima:156893400km, Mínima:143008000km
+                    option(value='B') B) Máxima:151533000km, Mínima:146467000km
+                    option(value='C') C) Máxima:253339000km, Mínima:241567000km
+                    option(value='D') D) Máxima:149000000km, Mínima:143567000km
+                  hr
+                  p
+                    | 11) ¿Cuál es la ecuación general de la elipse con centro en el orígen, eje mayor igual a 16, los focos están sobre el eje X y la curva pasa por el punto (4 , 3)?
+                  select.form-control(name='Q6')
+                    option(value='A')
+                      | A) (x
+                      sup 2
+                      | /12) + (y
+                      sup 2
+                      | /16)
+                    option(value='B')
+                      | B) (x
+                      sup 2
+                      | /12) + (y
+                      sup 2
+                      | /64)
+                    option(value='C')
+                      | C) (x
+                      sup 2
+                      | /64) + (y
+                      sup 2
+                      | /8)
+                    option(value='D')
+                      | D) (x
+                      sup 2
+                      | /16) + (y
+                      sup 2
+                      | /12)
+                  hr
+                  p
+                    | 12) ¿Cuál es la ecuación general de un circunferencia que pasa por los puntos M(4 , -1), Q(2 , 2) y U(-1 , -6)?
+                  select.form-control(name='Q7')
+                    option(value='A')
+                      | A) x
+                      sup 2
+                      | + 2y
+                      sup 2
+                      | + x + 2y - 32
+                    option(value='B')
+                      | B) x
+                      sup 2
+                      | + y
+                      sup 2
+                      | - 2x + 2y + 23
+                    option(value='C')
+                      | C) x
+                      sup 2
+                      | + y
+                      sup 2
+                      | + 2x + 2y - 23
+                    option(value='D')
+                      | D) x
+                      sup 2
+                      | + y
+                      sup 2
+                      | - x + 2y +32
+                  hr
+                  p
+                    | 13) Hallar la ecuación de la parábola con vértice en F(0 , 3)
+                  select.form-control(name='Q8')
+                    option(value='A')
+                      | A) x
+                      sup 2
+                      | = -12y
+                    option(value='B')
+                      | B) x
+                      sup 2
+                      | = 4y/3
+                    option(value='C')
+                      | C) x
+                      sup 2
+                      | = -3y/12
+                    option(value='D')
+                      | D) x
+                      sup 2
+                      | = 12y
+                      option
+                  hr
+                  p
+                    | 14) Hallar la ecuación de la circunferencia que pasa por el vértice y los puntos extremos del lado recto de la parabola: x
+                    sup 2
+                    | - 4y = 0.
+                  select.form-control(name='Q9')
+                    option(value='A')
+                      | A) x
+                      sup 2
+                      | + 2y
+                      sup 2
+                      | - 5y = 0
+                    option(value='B')
+                      | B) x
+                      sup 2
+                      | - y
+                      sup 2
+                      | + 10y = 0
+                    option(value='C')
+                      | C) x
+                      sup 2
+                      | + y
+                      sup 2
+                      | - 5y = 0
+                    option(value='D')
+                      | D) x
+                      sup 2
+                      | - 2y
+                      sup 2
+                      | - 10y = 0
+                  hr
+                  p
+                    | 15) Los focos de una hipérbola son los puntos F1(4 , -2) y F2(4 , 8), y la longitud de su eje transverso es 4. Hallar la ecuación de la hipérbola, la longitud de su lado recto y su excentricidad.
+                  select.form-control(name='Q10')
+                    option(value='A') A) LR: 5 y e:3/2
+                    option(value='B') B) LR: 4 y e:1/2
+                    option(value='C') C) LR: 10 y e:2/3
+                    option(value='D') D) LR: 10 y e:4/5
+                  hr
+                  p
+                  input.btn.btn-success(type='submit', name='submit', value='Calificar', onclick='test(this.form)')
+                  input.btn.btn-primary(type='reset', name='reset', value='Reiniciar')
+                  input(type='hidden', name='calif', size='2')
+          br
+          br
+        br
+        br
+        br
+        br
+        //
+            JavaScript 
+        script(src='js1/jquery-1.10.2.js')
+        script(src='js1/bootstrap.js')
+        script(src='js/jquery-1.10.2.js')
+        script(src='js/bootstrap.js')
+        //
+            Custom JavaScript for the Side Menu and Smooth Scrolling 
+        script.
+          $("#menu-close").click(function(e) {
+          e.preventDefault();
+          $("#sidebar-wrapper").toggleClass("active");
+          });
+        script.
+          $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#sidebar-wrapper").toggleClass("active");
+          });
+        script.
+          $(function() {
+          $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+          $('html,body').animate({
+          scrollTop: target.offset().top
+          }, 1000);
+          return false;
+          }
+          }
+          });
+          });

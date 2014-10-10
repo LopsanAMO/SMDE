@@ -1,0 +1,187 @@
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Business Casual Template for Bootstrap
+    //
+       Bootstrap core CSS 
+    link(href='/css4/bootstrap.css', rel='stylesheet')
+    //
+       Add custom CSS here 
+    link(href='/css4/business-casual.css', rel='stylesheet')
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/stylish-portfolio.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+  body
+    noscript
+      | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+    ul.nav.nav-pills
+      li.active
+        a(href='teoriadb') Dibujo Tecnico 
+      li.active
+        a(href='teoriaGA')  Geometria Analitica 
+    a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+      i.fa.fa-bars
+    #sidebar-wrapper
+      ul.sidebar-nav
+        a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+          i.fa.fa-times
+        li.sidebar-brand
+          if todo == undefined
+            a(href='index') Bienvenido
+          else 
+              a(href='index') #{todo[0].Nombre}             
+        li
+          a(href='index') Home
+        if todo == undefined  
+        else 
+          if todo[0].ID_prof
+            li
+              a(href='cprof' ) Datos
+          else
+            li
+              a(href='calum') Datos
+        if todo == undefined
+          li
+              a(href='login' ) Ingresa Sesion
+          li
+              a(href='registrarse' ) Registrarse  
+        else 
+        li
+          a(href='teoriadb') Teoria
+        li
+          a(href='ejer1') Ejercicios
+        li
+          a(href='actividades') Material Didactico
+        if todo == undefined  
+        else 
+          li
+            a(href='salir') Cerrar sesion
+    .container
+      br
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Circunferencia
+            hr
+            img.img-responsive.img-border.img-left(src='img/Circulini2.gif')
+            hr.visible-xs
+            br
+            br
+            br
+            br
+            p
+              | Es el lugar geométrico del conjunto de puntos de un plano tales que la distancia a cada uno de ellos desde un punto fijo del plano es una constante. El punto fijo se llama centro de la circunferencia y la distancia constante se llama radio.
+              | La ecuación de una circunferencia con centro en C(h , k) y radio igual a “r” es:
+              br
+              | (x – h)2 + (y – k)2 = r2
+              br
+              | Si el centro de una circunferencia de radio “r” está en el origen, la ecuación de la circunferencia se reduce a:
+              br
+              | x2 + y2 = r2
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Parabola
+            hr
+            hr.visible-xs
+            p
+              | Es el conjunto de puntos situados en un plano de tal modo que desde cada punto, las distancias no orientadas a punto fijo y una recta fija son iguales.
+              | El punto fijo F se llama foco, y la recta fija L, directriz. La recta que pasa por el foco perpendicularmente a la directriz se llama eje. El segmento de recta que pasa por el foco perpendicularmente al eje y que es interceptado por la parábola se llama lado recto. (Muchos autores lo llaman cuerda normal). La recta que une dos puntos cualesquiera de la parábola tal como CD se llama cuerda, en particular, a la cuerda que pasa por el foco, tal como AB, se llama cuerda focal. Si P es un punto cualquiera de la parábola, la recta PF se llama radio focal de P, o radio vector.
+              | Ecuación De La Parábola De Vértice En El Origen Y Eje Un Eje Coordenado
+              | La ecuación de una parábola de vértice en el origen ‘y’, el eje ‘Y’, es:
+              br
+              | y2 = 4p
+              br
+              | en donde el foco es el punto (p , 0) y la ecuación de la directriz es x= -p. Si p
+              | 0, la parábola se abre hacia la derecha; si p&lt0, la parábola se abre hacia la izquierda. Si el eje de una parábola coincide con el eje Y, y el vértice está en el origen, su ecuación es:
+              br
+              | x2 = 4py
+              br
+              | en donde el foco es el punto (0 , p), y la ecuación de la directriz es y = -p. Si p
+              | 0, la parábola se abre hacia arriba; si p&lt0, la parábola se abre hacia abajo. En cada caso, la longitud del lado recto está dada por el valor absoluto de 4p, que es el coeficiente del término de primer grado.
+              img.img-responsive.img-border.img-center(src='img/Parabolini.gif')
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Elipse
+            hr
+            hr.visible-xs
+            p
+              | Elipse: Es el conjunto de puntos sobre un plano colocados de tal manera que la suma de las distancias de cada uno de ellos a dos puntos fijos es constante. Los puntos fijos se llaman ‘focos’ de la elipse.
+              br
+              | Elementos De Una Elipse:
+              br
+              | V1V2 = Eje mayor = 2a
+              br
+              | B1B2 = Eje menor = 2b
+              br
+              | F1F2 = Eje focal = 2c
+              br
+              | La recta L que pasa por los focos se llama eje focal. Los puntos V1 y V2 se llaman vértices de la elipse. El punto C del eje focal, se llama centro. La recta perpendicular a L se llama eje normal. Los puntos B1 y B2 son los extremos del eje menor. El segmento que une dos puntos diferentes, tal Como G1G2, se llama cuerda. La cuerda que pasa por uno de los focos tal como E1E2, se llama cuerda focal. La cuerda focal perpendicular al eje focal se llama lado recto LR. La cuerda que pasa por el centro de la elipse, tal como D1D2, se llama diámetro. Los segmentos PF1 y PF2 se llaman radios vectores de P.
+              | La ecuación de una elipse de centro en el origen, eje focal el eje X, distancia focal igual a 2c y cantidad constante igual a 2a es:
+              br
+              | (x/a) + (y/b) = 1
+              br
+              | Si ele je focal de la elipse coincide con el eje Y, de manera que las coordenadas de los focos sean  (0 , c) y (0 , -c), la ecuación es:
+              br
+              | (x/b) + (y/a) = 1
+              br
+              | Para cada elipse ‘a’ es la longitud del semieje mayor que es la mitad del eje mayor, ‘b’ la del semieje menor que es la mitad del eje mayor y ‘c’ el semieje focal que es la mitad del eje focal, ‘a’ y ‘b’ están ligados por la relación:
+              br
+              | A = b + c
+              br
+              | También para la elipse, la longitud de cada lado recto es  2b/a y la excentricidad ‘e’ está dada por la fórmula e=c/a , e&lt1
+              img.img-responsive.img-border.img-center(src='img/Elipsini.gif')
+        center
+          div.compensación-col-sm-2.col-sm-10
+            a.btn.btn-lg.btn-primary(href='ejer1') Ejercicios Geometria Analitica
+      br
+      br
+      br
+      br
+      //
+          JavaScript 
+      script(src='/js1/jquery-1.10.2.js')
+      script(src='/js1/bootstrap.js')
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

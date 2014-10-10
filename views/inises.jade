@@ -1,0 +1,119 @@
+html.no-js(lang='en')
+  head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      title Proyecto Aula
+      link(href='/css/bootstrap.min.css', rel='stylesheet')
+      //
+         Bootstrap core CSS 
+      link(href='/css/bootstrap.css', rel='stylesheet')
+      //
+         Add custom CSS here 
+      link(href='/css3/stylish-portfolio.css', rel='stylesheet')
+      link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+      script(type='text/javascript').
+        function soloNumero(e){
+        var key = window.Event ? e.which : e.keyCode
+        return (key >= 48 && key <= 57 || key==8)
+        }
+        function Pass(e) {
+        if (document.formulito.contri.value!==document.formulito.contri2.value){
+        document.formulito.contri2.value="";
+        alert("Contraseñas diferentes, escriba la misma contraseña")
+        formulito.contri2.focus();
+        return (false);
+        }
+        }
+    body
+      noscript
+        | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+      a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+        i.fa.fa-bars
+      #sidebar-wrapper
+        ul.sidebar-nav
+          a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+            i.fa.fa-times
+          li.sidebar-brand
+            if todo == undefined
+              a(href='index') Bienvenido
+            else 
+                a(href='index') Bienvenido #{todo[0].Nombre}
+          li
+            a(href='index') Home
+          if todo == undefined  
+          else 
+            if todo[0].ID_prof
+              li
+                a(href='cprof' ) Datos
+            else
+              li
+                a(href='calum') Datos
+          if todo == undefined
+            li
+                a(href='login' ) Ingresa Sesion
+            li
+                a(href='registrarse' ) Registrarse  
+          else 
+          li
+            a(href='teoriadb') Teoria
+          li
+            a(href='ejer1') Ejercicios
+          li
+            a(href='actividades') Material Didactico
+          if todo == undefined  
+          else 
+            li
+              a(href='salir') Cerrar sesion
+      #top.header
+        .vert-text
+          form.form-horizontal(role='form', name='formulito', action='loginUS', method="post")
+            blockquote
+              blockquote
+                blockquote
+                  .col-xs-4
+                    br
+                    input#nombreusi.form-control(type='text', name='id',placeholder='Ingrese su nombre de usuario', onpaste='return false ', ondrop='return false', required='required')
+                    br
+                    input#inputPassword3.form-control(type='password', name='contri', placeholder='Introduzca su contraseña', onpaste='return false ', ondrop='return false', required='required', title='tu contraseña solo tenia entre 8 y 10 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres especiales', pattern='(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{1,16})$')
+                    br
+                    br
+                    div(class="compensación-col-sm-2 col-sm-10")
+                      button.btn.btn-primary(type='submit')  Iniciar Sesion 
+                  if poli == 1
+                    .alert.alert-danger.fade.in.col-xs-4.col-md-offset-3
+                      font(color='white')
+                        button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+                        h4 O MAI GA!!!!! OCURRIO UN ERROR!!!!!
+                          p
+                            | Revisa tu usario y contraseña ya que muy probablemente ingresaste mal un dato, o si no estas registrado registrate con este siguiente boton :D
+                          p
+                            a.btn.btn-success(href='registrarse') Registrate ;)
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

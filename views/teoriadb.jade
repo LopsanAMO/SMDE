@@ -1,0 +1,261 @@
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Business Casual Template for Bootstrap
+    //
+       Bootstrap core CSS 
+    link(href='/css4/bootstrap.css', rel='stylesheet')
+    //
+       Add custom CSS here 
+    link(href='/css4/business-casual.css', rel='stylesheet')
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/stylish-portfolio.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+  body
+    noscript
+      | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+    ul.nav.nav-pills
+      li.active
+        a(href='teoriadb') Dibujo Tecnico 
+      li.active
+        a(href='teoriaGA')  Geometria Analitica 
+    a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+      i.fa.fa-bars
+    #sidebar-wrapper
+      ul.sidebar-nav
+        a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+          i.fa.fa-times
+        li.sidebar-brand
+          if todo == undefined
+            a(href='index') Bienvenido
+          else 
+              a(href='index') #{todo[0].Nombre}            
+        li
+          a(href='index') Home
+        if todo == undefined  
+        else 
+          if todo[0].ID_prof
+            li
+              a(href='cprof' ) Datos
+          else
+            li
+              a(href='calum') Datos
+        if todo == undefined
+          li
+              a(href='login' ) Ingresa Sesion
+          li
+              a(href='registrarse' ) Registrarse  
+        else 
+        li
+          a(href='teoriadb') Teoria
+        li
+          a(href='ejer1') Ejercicios
+        li
+          a(href='actividades') Material Didactico
+        if todo == undefined  
+        else 
+          li
+            a(href='salir') Cerrar sesion
+    .container
+      br
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Proyección Isométrica
+            hr
+            img.img-responsive.img-border.img-left(src='img/Isometricosencillo.gif')
+            hr.visible-xs
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            p
+              | Es un método gráfico de representación. Constituye una representación visual de un objeto tridimensional en dos dimensiones, en la que el objeto se representa generalmente con una inclinación de 30° respecto al eje horizontal en donde las dimensiones del objeto están a escala.
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Escala
+            hr
+            hr.visible-xs
+            p
+              | Es la relación matemática que existe entre las dimensiones reales y las del dibujo que representa la realidad sobre un plano o un mapa. Es la relación de proporción que existe entre las medidas de un mapa con las originales. Esto no sirve para representar objetos de varias dimensiones que no caben en el papel, son muy pequeñas o simplemente para ser exactos aunque la figura si quepa en el papel. La Fórmula para obtener la escala es:
+            center
+              h4  Esc = (Dimensión del dibujo) / (Dimensión del objeto)
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Acotacion
+            hr
+            img.img-responsive.img-border.img-left(src='img/Acotacion.gif')
+            hr.visible-xs
+            p
+              | Acotación: La acotación es la representación de las dimensiones y otras características de un objeto. Además de las dimensiones, la acotación también representa información adicional (distancias, materiales, referencias, etc.) mediante el uso de líneas, símbolos, figuras y notas. Para acotar un isométrico usualmente trazamos una línea de 6 milímetros que están unidas por otras línea de extremo a extremo (amabas líneas de extremos a extremos deben de tener una cabeza de flecha) de algún trazo que necesitemos saber sus dimensiones para representar al objeto con una separación de un milímetro respecto al isométrico, las líneas deben de estar a 180° respecto a las líneas del isométrico que estén a 30° o a 120° respecto las líneas que estén a 30°, esto se hace así debido a que a la hora de acotar se cruzarán las líneas de las acotaciones y por lo tanto dificulta interpretación de las dimensiones o medidas del objeto, lo mismo aplica con las dos opciones antes mencionadas podemos aplicar amabas en el mismo dibujo mientras no se crucen las líneas de las acotaciones.
+      br
+      br
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Tipos de Lineas
+            hr
+            hr.visible-xs
+            p
+              | 1)  Líneas Continua Gruesa Reforzada: Generalmente se utiliza para hacer el borde de los marcos de referencia.
+              br
+              | 2)  Línea Continua Gruesa: Se utiliza para hacer los bordes de las proyecciones isométricas, de los objetos o de las vistas en cualquier sistema tanto americano como europeo, también se utiliza para hacer los bordes interiores del marco de referencia.
+              br
+              | 3)  Línea Continua Mediana: Se usa para hacer las letras del contenido de un marco de referencia o en las acotaciones.
+              br
+              | 4)  Línea Continua Fina: Es empleada para hacer líneas de apoyo para poder dibujar sobre ellas después la figura u objeto deseado, esto se hace con el fin de que si te equivocas lo puedas borrar fácilmente.
+              br
+              | 5)  Línea Continua Fina Ondulada (A Mano Alzada): Casi no se emplea en algún dibujo técnico debido a la falta de precisión que carece esta técnica y que la escuadra, compás y reglas tienen.
+              br
+              | 6)  Línea Interrumpida Continua Mediana: Por lo general es utilizada para indicar en una vista que hay aristas no visibles y en un isométrico transparente sirve para indicar las aristas que están detrás de las caras del isométrico que son visibles.
+              br
+              | 7)  Línea Mixta Fina: Es usada generalmente para hacer los ejes de simetría de una vista o isométrico.
+              br
+              | 8)  Línea Mixta Fina Con extremos Gruesos: Por lo general se utiliza para indicar de que extremo a que extremo será un corte a la figura o isométrico.
+              br
+              | 9)  Línea Mixta Gruesa: Es raro que se empleé en un dibujo técnico.
+              br
+              | 10) Línea Fantasma: Es una línea muy tenue casi imperceptible, se usa para hacer trazos de apoyo para escribir en línea recta o para hacer los trazos que llevará una figura para después remarcarla una vez hecha, la ventaja de esta línea es que si te equivocas es fácil de borrar.
+              br
+              img.img-responsive.img-border.img-center(src='img/Lineas.gif')
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Pasos para hacer un Isometrico
+            hr
+            hr.visible-xs
+            p
+              | Lo que mostraremos a continuación son recomendaciones generales para hacer un isométrico, también mostraremos un ejemplo animado.
+              br
+              | 1)  Lo primero sería empezar por trazar la base y después las alturas de los trazos verticales de los vértices de la base.
+              br
+              | 2)  Hacer todos los demás trazos del objeto a excepción de los huecos que lleve (elipses y rombos), esto se hacer más practico o fácil el diseño del isométrico.
+              br
+              | 3)  Una vez hecha la figura se recomienda trazar los ejes de simetría.
+              br
+              | 4)  Por último se pondrían las acotaciones de la figuras tanto de sus lados como de su radio.
+              br
+              img.img-responsive.img-border.img-center(src='img/Isometricini2.gif')
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Sistemas De Proyecciones De Vistas
+            hr
+            hr.visible-xs
+            p
+              | Las vistas son las caras de algún objeto o alguna proyección isométrica en la que se describen las dimensiones de esa cara tanto de las aristas visibles y las no visibles, por lo general solo se muestran 3 vistas principales de una figuras que son las vista frontal, la vista lateral que se vea (que no esté detrás de la figura) y la vista superior, ya que con ellas se puede obtener perfectamente la proyección isométrica.
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Sistemas Americano de proyecciones
+            hr
+            img.img-responsive.img-border.img-left(src='img/SisAmericano.gif')
+            hr.visible-xs
+            p
+              | Sistema Americano: En el sistema americano los planos de proyección se sitúan entre el observador y la pieza u objeto, por tanto las proyecciones de dicha pieza quedarán situadas en el plano de proyección de la siguiente manera:
+              | Vista frontal: es la vista principal, las otras se disponen alrededor de él, es la que no muestra más datos sobre las dimensiones de la figura.
+              | Las se colocan alineadas verticalmente con la vista frontal son:
+              br
+              | Superior: se sitúa sobre el alzado.
+              br
+              | Inferior: se coloca debajo del alzado.
+              br
+              | El resto de las vistas se sitúan alineadas horizontalmente respecto a la vista frontal:
+              br
+              | Vista lateral izquierda: se coloca a la izquierda de la vista lateral izquierda.
+              br
+              | Vista lateral derecha: se sitúa a la derecha del alzado
+              br
+              | Vista posterior: se coloca a la derecha del perfil derecho.
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              strong Sistemas Europeo de proyecciones
+            hr
+            img.img-responsive.img-border.img-left(src='img/SistemaEuropeo.gif')
+            hr.visible-xs
+            p
+              | En el sistema europeo el objeto o pieza se sitúa entre los planos de proyección y el observador, por tanto las proyecciones de dicha pieza quedarán situadas en el plano de proyección de la siguiente manera:
+              | Vista frontal: es la vista principal, las otras se disponen alrededor de él, es la que no muestra más datos sobre las dimensiones de la figura.
+              | Las se colocan alineadas verticalmente con la vista frontal son:
+              br
+              | Superior: se sitúa debajo la vista frontal.
+              br
+              | Inferior: se coloca arriba de la vista frontal.
+              br
+              | El resto de las vistas se sitúan alineadas horizontalmente respecto a la vista frontal:
+              br
+              | Lateral izquierda: se coloca a la derecha de la vista frontal.
+              br
+              | Lateral derecho: se sitúa a la izquierda de la vista frontal.
+              br
+              | Vista posterior: se coloca a la derecha de la vista lateral izquierda.
+      center
+        div.compensación-col-sm-2.col-sm-10
+          a.btn.btn-lg.btn-primary(href='ejer2') Ejercicios Dibujo Tecnico
+    br
+    br
+    //
+       JavaScript 
+    script(src='/js1/jquery-1.10.2.js')
+    script(src='/js1/bootstrap.js')
+    script(src='/js/jquery-1.10.2.js')
+    script(src='/js/bootstrap.js')
+    //
+       Custom JavaScript for the Side Menu and Smooth Scrolling 
+    script.
+      $("#menu-close").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+      });
+    script.
+      $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+      });
+    script.
+      $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+      $('html,body').animate({
+      scrollTop: target.offset().top
+      }, 1000);
+      return false;
+      }
+      }
+      });
+      });

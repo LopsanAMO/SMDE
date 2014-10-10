@@ -1,0 +1,116 @@
+html.no-js(lang='en')
+  head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      title Proyecto Aula
+      link(href='/css/bootstrap.min.css', rel='stylesheet')
+      //
+         Bootstrap core CSS 
+      link(href='/css/bootstrap.css', rel='stylesheet')
+      //
+         Add custom CSS here 
+      link(href='/css3/stylish-portfolio.css', rel='stylesheet')
+      link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+      script(type='text/javascript').
+        function soloNumero(e){
+        var key = window.Event ? e.which : e.keyCode
+        return (key >= 48 && key <= 57 || key==8)
+        }
+        function Pass(e) {
+        if (document.formulito.contri.value!==document.formulito.contri2.value){
+        document.formulito.contri2.value="";
+        alert("Contraseñas diferentes, escriba la misma contraseña")
+        formulito.contri2.focus();
+        return (false);
+        }
+        }
+    body
+      noscript
+        | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+      a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+        i.fa.fa-bars
+      #sidebar-wrapper
+        ul.sidebar-nav
+          a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+            i.fa.fa-times
+          li.sidebar-brand
+            if todo == undefined
+              a(href='index') Bienvenido
+            else 
+              a(href='index') #{todo[0].Nombre}             
+          li
+            a(href='index') Home
+          if todo == undefined  
+          else 
+            if todo[0].ID_prof
+              li
+                a(href='cprof' ) Datos
+            else
+              li
+                a(href='calum') Datos
+          if todo == undefined
+            li
+                a(href='login' ) Ingresa Sesion
+            li
+                a(href='registrarse' ) Registrarse  
+          else 
+          li
+            a(href='teoriadb') Teoria
+          li
+            a(href='ejer1') Ejercicios
+          li
+            a(href='actividades') Material Didactico
+          if todo == undefined  
+          else 
+            li
+              a(href='salir') Cerrar sesion
+      #top.header
+        .vert-text
+          form.form-horizontal(role='form', name='formulito', action='index', method="get")
+            blockquote
+              blockquote
+                blockquote
+                  .col-xs-4
+                    br
+                    p( class="bg-danger" ) A ocurrido un error.
+                    br
+                    p( class="bg-danger" ) Esto se debe a que no tiene acceso al contenido al que intento ingresar
+                    br
+                    p( class="bg-danger" ) O a que una consulta salio mal
+                    br
+                    p( class="bg-success" ) Puedes regresar a la pagina anterior e intentar de nuevo
+                    br
+                    p( class="bg-success" ) O si presionas el siguiente boton volveras al inicio :D
+                    br
+                    br
+                    div(class="compensación-col-sm-2 col-sm-10")
+                      button.btn.btn-default(type='submit')  INDEX 
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

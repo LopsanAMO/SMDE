@@ -1,0 +1,155 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title SMDE-ADU
+    //
+        Bootstrap core CSS 
+    link(href='css4/bootstrap.css', rel='stylesheet')
+    //
+        Add custom CSS here 
+    link(href='css5/business-casual.css', rel='stylesheet')
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/stylish-portfolio.css', rel='stylesheet')
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    script(type='text/javascript').
+      function soloLetras(e){
+      tecla = (document.all) ? e.keyCode : e.which;
+      if (tecla==8) return true; // backspace
+      if (tecla==32) return true; // espacio
+      patron = /[a-zA-ZÑñáéíóúÁÉÍÓÚ]/; //patron
+      te = String.fromCharCode(tecla);
+      return patron.test(te); // prueba de patron
+      }
+      function soloNumero(e){
+      var key = window.Event ? e.which : e.keyCode
+      return (key >= 48 && key <= 57 || key==8)
+      }
+      function Pass(e) {
+      if (document.formulario.contra1.value!==document.formulario.contra2.value){
+      document.formulario.contra2.value="";
+      alert("Contraseñas diferentes, escriba la misma contraseña")
+      formulario.contra2.focus();
+      return (false);
+      }
+      }
+      function capturar(){ 
+      var i  
+      
+      for ( i = 0; i<document.formulario.r.length; i++){ 
+        if (document.formulario.r[i].checked)
+          return
+      }
+      formulario.boton.value = document.formulario.r[i].value;
+      } 
+  body
+    noscript
+      | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+    a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+      i.fa.fa-bars
+    #sidebar-wrapper
+      ul.sidebar-nav
+        a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+          i.fa.fa-times
+        li.sidebar-brand
+          if todo == undefined
+            a(href='index') Bienvenido
+          else 
+              a(href='index') #{todo[0].Nombre}                     
+        li
+          a(href='index') Home
+        if todo == undefined  
+        else 
+          if todo[0].ID_prof
+            li
+              a(href='cprof' ) Datos
+          else
+            li
+              a(href='calum') Datos
+        if todo == undefined
+          li
+              a(href='login' ) Ingresa Sesion
+          li
+              a(href='registrarse' ) Registrarse  
+        else 
+        li
+          a(href='teoriadb') Teoria
+        li
+          a(href='ejer1') Ejercicios
+        li
+          a(href='actividades') Material Didactico
+        if todo == undefined  
+        else 
+          li
+            a(href='salir') Cerrar sesion
+    .container
+      .row
+        .col-xs-6
+          .box
+            form( name='formulario', action='cambia', method="post" )
+              h4
+                font(color='B18904')  Nombre(s) 
+              input#disabledInput.form-control(onkeypress='return soloLetras(event)', onpaste='return false ', ondrop='return false', required='required', name='nomusi', type='text', disabled='disabled', value='#{todo[0].Nombre}') 
+              button.btn.btn-danger(type='button', onclick='document.formulario.nomusi.disabled=!document.formulario.nomusi.disabled') Cambiar Nombre
+              br
+              h4
+                font(color='B18904')  Apellido Paterno 
+              input#disabledInput.form-control(onkeypress='return soloLetras(event)', onpaste='return false ', ondrop='return false', required='required', name='Appat', type='text', disabled='disabled', value='#{datoAlum[0].ApPat_alum}') 
+              button.btn.btn-danger(type='button', onclick='document.formulario.Appat.disabled=!document.formulario.Appat.disabled') Cambiar Apellido Paterno
+              br
+              h4
+                font(color='B18904')  Apellido Materno 
+              input#disabledInput.form-control(onkeypress='return soloLetras(event)', onpaste='return false ', ondrop='return false', required='required', name='Amat', type='text', disabled='disabled', value='#{datoAlum[0].ApMat_alum}')
+              button.btn.btn-danger(type='button', onclick='document.formulario.Amat.disabled=!document.formulario.Amat.disabled') Cambiar Apellido Materno
+              h4
+                font(color='B18904')  Correo 
+              input#disabledInput.form-control(onpaste='return false ', ondrop='return false', required='required', name='correito', for='disabledTextInput', type='email', title='ingrese un correo valido', pattern='/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/', disabled='disabled', value='#{datoAlum[0].Email}')
+              button.btn.btn-danger(type='button', onclick='document.formulario.correito.disabled=!document.formulario.correito.disabled') Cambiar Email
+              br
+              h4
+                font(color='B18904')  Contrase&ntildea 
+              input#disabledInput.form-control(onpaste='return false ', ondrop='return false', required='required', name='contra', for='disabledTextInput', type='password', placeholder='#{datoAlum[0].Contra_alum}', title='solo valores entre 8 y 10 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales', disabled='disabled', pattern='(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$' )
+              button.btn.btn-danger(type='button', onclick='document.formulario.contra.disabled=!document.formulario.contra.disabled') Cambiar contrase&ntildea 
+              br
+              br            
+              center
+                div.compensacion-col-sm-2.col-sm-10
+                  input#disabledInput.form-control( type="hidden", name="boton",value="1", disable)
+                  button.btn.btn-lg.btn-success(type='submit') Listo
+    br
+    br
+    //
+        JavaScript 
+    script(src='js1/jquery-1.10.2.js')
+    script(src='js1/bootstrap.js')
+    script(src='js/jquery-1.10.2.js')
+    script(src='js/bootstrap.js')
+    //
+        Custom JavaScript for the Side Menu and Smooth Scrolling 
+    script.
+      $("#menu-close").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+      });
+    script.
+      $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+      });
+    script.
+      $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+      $('html,body').animate({
+      scrollTop: target.offset().top
+      }, 1000);
+      return false;
+      }
+      }
+      });
+      });

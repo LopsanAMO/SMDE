@@ -1,0 +1,179 @@
+html(lang='en')
+  head
+    title Material Didactico
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+    style.
+      body {
+      font-family:Monospace;
+      font-size:13px;
+      text-align:center;
+      font-weight: bold;
+      background-color: #fff;
+      margin: 0px;
+      overflow: hidden;
+      }
+      #info {
+      color:#000;
+      position: absolute;
+      top: 0px; width: 100%;
+      padding: 5px;
+      }
+      a {
+      color: red;
+      }
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/stylish-portfolio.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+  body
+    noscript
+      | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+    a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+      i.fa.fa-bars
+    #sidebar-wrapper
+      ul.sidebar-nav
+        a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+          i.fa.fa-times
+        li.sidebar-brand
+          if todo == undefined
+            a(href='index') Bienvenido
+          else 
+              a(href='index') #{todo[0].Nombre}              
+        li
+          a(href='index') Home
+        if todo == undefined  
+        else 
+          if todo[0].ID_prof
+            li
+              a(href='cprof' ) Datos
+          else
+            li
+              a(href='calum') Datos
+        if todo == undefined
+          li
+              a(href='login' ) Ingresa Sesion
+          li
+              a(href='registrarse' ) Registrarse  
+        else 
+        li
+          a(href='teoriadb') Teoria
+        li
+          a(href='ejer1') Ejercicios
+        li
+          a(href='actividades') Material Didactico
+        if todo == undefined  
+        else 
+          li
+            a(href='salir') Cerrar sesion
+    ul.nav.nav-tabs
+      li.active
+        a(href='#')  Home 
+      li
+        a(href='piramide')  Piramide 
+      li
+        a(href='name')  Tech Corp 
+      li
+        a(href='cono')  Cono 
+      li
+        a(href='cilindro')  Cilindro 
+      li
+        a(href='cubo')  cubo 
+      li
+        a(href='iso')  Crea Isometrico 
+      li
+        a(href='actividades')  Extra 
+      li
+        a(href='poli')  Poligono 
+    #container
+    #info
+      script(src='/build/three.min.js')
+      script(src='/js/controls/OrbitControls.js')
+      script(src='/js/Detector.js')
+      script(src='/js/libs/stats.min.js')
+      script.
+        if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+        var container, stats;
+        var camera, controls, scene, renderer;
+        init();
+        render();
+        function init() {
+        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
+        camera.position.z = 500;
+        controls = new THREE.OrbitControls( camera );
+        controls.addEventListener( 'change', render );
+        scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+        // world
+        var geometry = new THREE.CylinderGeometry( 15, 100, 250, 15, 100 );
+        var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading } );
+        for ( var i = 0; i < 500; i ++ ) {
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.x = 10;
+        mesh.position.y = 10;
+        mesh.position.z = 10;
+        mesh.updateMatrix();
+        mesh.matrixAutoUpdate = false;
+        scene.add( mesh );
+        }
+        // lights
+        light = new THREE.DirectionalLight( 0xffffff );
+        light.position.set( 1, 1, 1 );
+        scene.add( light );
+        light = new THREE.DirectionalLight( 0x002288 );
+        light.position.set( -1, -1, -1 );
+        scene.add( light );
+        light = new THREE.AmbientLight( 0x222222 );
+        scene.add( light );
+        // renderer
+        renderer = new THREE.WebGLRenderer( { antialias: false } );
+        renderer.setClearColor( scene.fog.color, 1 );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        container = document.getElementById( 'container' );
+        container.appendChild( renderer.domElement );
+        stats = new Stats();
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.top = '0px';
+        stats.domElement.style.zIndex = 100;
+        container.appendChild( stats.domElement );
+        //
+        window.addEventListener( 'resize', onWindowResize, false );
+        }
+        function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        render();
+        }
+        function render() {
+        renderer.render( scene, camera );
+        stats.update();
+        }
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      //
+          Custom JavaScript for the Side Menu and Smooth Scrolling 
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

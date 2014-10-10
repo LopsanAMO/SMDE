@@ -1,0 +1,204 @@
+html.no-js(lang='en')
+  head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      title Consultas
+      link(href='/css/bootstrap.min.css', rel='stylesheet')
+      //
+         Bootstrap core CSS 
+      link(href='/css/bootstrap.css', rel='stylesheet')
+      //
+         Add custom CSS here 
+      link(href='/css1/stylish-portfolio.css', rel='stylesheet')
+      link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+      script(type='text/javascript').
+        function soloLetras(e){
+        tecla = (document.all) ? e.keyCode : e.which;
+        if (tecla==8) return true; // backspace
+        if (tecla==32) return true; // espacio
+        patron = /[a-zA-ZÑñáéíóúÁÉÍÓÚ]/; //patron
+        te = String.fromCharCode(tecla);
+        return patron.test(te); // prueba de patron
+        }
+        function soloNumero(e){
+        var key = window.Event ? e.which : e.keyCode
+        return (key >= 48 && key <= 57 || key==8)
+        }
+        function Pass(e) {
+        if (document.formulito.contri.value!==document.formulito.contri2.value){
+        document.formulito.contri2.value="";
+        alert("Contraseñas diferentes, escriba la misma contraseña")
+        formulito.contri2.focus();
+        return (false);
+        }
+        }
+    body
+      noscript
+        | se ah detectado que se desactivo JAVASCRIPT, por favor vuelve a activarlo hijo de la chingada!!!
+      a#menu-toggle.btn.btn-primary.btn-lg.toggle(href='#')
+        i.fa.fa-bars
+      #sidebar-wrapper
+        ul.sidebar-nav
+          a#menu-close.btn.btn-default.btn-lg.pull-right.toggle(href='#')
+            i.fa.fa-times
+          li.sidebar-brand
+            if todo == undefined
+              a(href='index') Bienvenido
+            else 
+                a(href='index') #{todo[0].Nombre}              
+          li
+            a(href='index') Home
+          if todo == undefined  
+          else 
+            if todo[0].ID_prof
+              li
+                a(href='cprof' ) Datos
+            else
+              li
+                a(href='calum') Datos
+          if todo == undefined
+            li
+                a(href='login' ) Ingresa Sesion
+            li
+                a(href='registrarse' ) Registrarse  
+          else 
+          li
+            a(href='teoriadb') Teoria
+          li
+            a(href='ejer1') Ejercicios
+          li
+            a(href='actividades') Material Didactico
+          if todo == undefined  
+          else 
+            li
+              a(href='salir') Cerrar sesion
+      #top.header
+        .vert-text
+          if log == true
+            h3 
+              font(color="white")
+                |  #{todo[0].Nombre} #{todo[0].ApPat_alum}
+                br
+            br    
+            table.table
+              tr.success
+                th Boleta
+                th Nombre
+                th Apellido Paterno
+                th Apellido Materno
+                th Contrase&ntildea
+                th Grupo
+                th Email
+                th nivel
+                th Calif de Dibujo Tecnico
+                th Calif de Geometria Analitica
+              tr.success
+                td= todo[0].Boleta
+                td= todo[0].Nombre
+                td= todo[0].ApPat_alum
+                td= todo[0].ApMat_alum
+                td= todo[0].Contra_alum                
+                td= todo[0].Grupo
+                td= todo[0].Email
+                if (todo[0].Calif1 <= 5 || todo[0].Calif2 <= 5)
+                  td Novato
+                else 
+                  if (todo[0].Calif1 >= 6 && todo[0].Calif1 <= 7) && (todo[0].Calif2 >= 6 && todo[0].Calif2 <= 7)
+                    td Estudiante Raso
+                  else
+                    if (todo[0].Calif1 >= 7 && todo[0].Calif1 < 9 ) && (todo[0].Calif2 >= 7 && todo[0].Calif2 < 9)
+                      td Estudiante Heroico
+                    else
+                      td Estudiante Legendario
+                td= todo[0].Calif1
+                td= todo[0].Calif2
+            a.btn.btn-primary(href='cambia')  Modificar datos 
+          else
+            if otro == false
+              p Datos Personales
+              table.table
+                tr.success
+                  th ID
+                  th Nombre
+                  th Apellido Paterno
+                  th Apellido Materno
+                  th Contrase&ntildea
+                  th Materia que imparte
+                tr.success
+                  td= todo[0].ID_prof
+                  td= todo[0].Nombre
+                  td= todo[0].ApPat_prof
+                  td= todo[0].ApMat_prof
+                  td= todo[0].Contra                
+                  if todo[0].Materia == 0
+                    td Dibujo Tecnico
+                  else if todo[0].Materia == 1
+                    td Geometria Analitica
+                  else 
+                    td Geometria Analitica y Dibujo Tecnico 
+              form( action='cprof2', method="post")
+                button.btn.btn-default(type='submit')  Visualizar alumnos
+            else
+              p Alumnos
+              table.table
+                tr.success
+                  th Boleta
+                  th Nombre
+                  th Apellido Paterno
+                  th Apellido Materno
+                  th Grupo
+                  th Email
+                  th nivel
+                  th Calif de Geometria Analitica
+                  th Calif de Dibujo Tecnico
+                -each item in todo
+                  tr.success
+                    td= item.Boleta
+                    td= item.Nombre
+                    td= item.ApPat_alum
+                    td= item.ApMat_alum               
+                    td= item.Grupo
+                    td= item.Email
+                    if (item.Calif1 <= 5 || item.Calif2 <= 5)
+                      td Novato
+                    else 
+                      if (item.Calif1 >= 6 && item.Calif1 <= 7 && item.Calif2 >= 6 && item.Calif2 <= 7)
+                        td Estudiante Raso
+                      else
+                        if (item.Calif1 >= 7 && item.Calif1 < 9 && item.Calif2 >= 7 && item.Calif2 <= 9)
+                          td Estudiante Heroico
+                        else
+                          td Estudiante Legendario
+                    td= item.Calif1
+                    td= item.Calif2
+              a.btn.btn-default(href='cprof')  Visualizar Informacion propia      
+
+      script(src='/js/jquery-1.10.2.js')
+      script(src='/js/bootstrap.js')
+      script.
+        $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        });
+      script.
+        $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top
+        }, 1000);
+        return false;
+        }
+        }
+        });
+        });

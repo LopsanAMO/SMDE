@@ -1,0 +1,17 @@
+
+
+
+
+exports.console = function(req, res){
+	console.log(req.session.datos)
+res.render('console', { 
+                  title: 'SMDE',
+                  dato: req.session.datos});
+};
+
+exports.consul = function(req, res){
+res.render('consul', { 
+            title: 'yay',
+            todos: todos});
+};
+
