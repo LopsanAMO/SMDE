@@ -24,6 +24,8 @@ USE batiz;
 --
 -- Definition of table `alumno`
 --
+ALTER TABLE table_name MODIFY COLUMN column_name datatype
+
 
 DROP TABLE IF EXISTS `alumno`;
 CREATE TABLE `alumno` (
@@ -56,7 +58,7 @@ CREATE TABLE `alumno` (
 
 DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE `profesor` (
-  `ID_prof` int(10) unsigned NOT NULL,
+  `ID_prof` varchar(10) unsigned NOT NULL,
   `Nombre` varchar(60) NOT NULL,
   `ApPat_prof` varchar(60) NOT NULL,
   `ApMat_prof` varchar(60) NOT NULL,
